@@ -24,7 +24,7 @@ public class UserRestController {
 	
 	@RequestMapping(value = "/user/login", method = RequestMethod.POST)
 	public ResponseEntity<String> login(UserInfo userInfo){
-		boolean isMatched = userInfoService.isPassowrdMatched(userInfo.getEmail(), userInfo.getPassword());
+		boolean isMatched = userInfoService.isPassowrdMatched(userInfo.getId(), userInfo.getPassword());
 			
 			if (isMatched) {
 				

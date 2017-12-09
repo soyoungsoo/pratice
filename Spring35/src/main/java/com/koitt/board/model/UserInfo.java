@@ -4,20 +4,32 @@ import java.util.Set;
 
 public class UserInfo {
 	
+	private Integer id;					// 사용자 인덱스 (Primary Key)
 	private String email;				// 이메일(Primary Key)
 	private String password;			// 비밀번호
 	private String name;				// 이름
 	private String avatar;				// 아바타 이미지 파일명
 	private Set<UserType> userTypes;	// ADMIN, USER
 	
-	public UserInfo() {}
+	public UserInfo() {}		
 
-	public UserInfo(String email, String password, String name, String avatar, Set<UserType> userTypes) {
+	public UserInfo(Integer id, String email, String password, String name, String avatar, Set<UserType> userTypes) {
+		super();
+		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.avatar = avatar;
 		this.userTypes = userTypes;
+	}
+
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setNo(Integer no) {
+		this.id = no;
 	}
 
 	public String getEmail() {
@@ -60,12 +72,14 @@ public class UserInfo {
 		this.userTypes = userTypes;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((avatar == null) ? 0 : avatar.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((userTypes == null) ? 0 : userTypes.hashCode());
@@ -91,6 +105,11 @@ public class UserInfo {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -112,7 +131,9 @@ public class UserInfo {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UserInfo [email=");
+		builder.append("UserInfo [id=");
+		builder.append(id);
+		builder.append(", email=");
 		builder.append(email);
 		builder.append(", password=");
 		builder.append(password);
@@ -125,4 +146,6 @@ public class UserInfo {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 }

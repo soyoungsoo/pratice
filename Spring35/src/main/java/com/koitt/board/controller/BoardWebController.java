@@ -89,7 +89,7 @@ public class BoardWebController {
 
 	// 글 작성 후, 글 목록 화면으로 이동
 	@RequestMapping(value = "/new.do", method = RequestMethod.POST)
-	public String newBoard(HttpServletRequest request, String id, String title, String content,
+	public String newBoard(HttpServletRequest request, Integer id, String title, String content,
 			@RequestParam("attachment") MultipartFile attachment) throws CommonException, Exception {
 
 		Board board = new Board();
@@ -139,7 +139,7 @@ public class BoardWebController {
 	public String remove(HttpServletRequest request, @RequestParam(value = "no", required = true) String no,
 			String password) throws CommonException, UnsupportedEncodingException {
 
-		boolean isMatched = userInfoSerivce.isPassowrdMatched(Integer.parseInt(no), password);
+		boolean isMatched = userInfoSerivce.isBoardMatched(Integer.parseInt(no), password);
 		if (!isMatched) {
 			return "redirect:/board/remove.do?no=" + no + "&action=error-password";
 		}
@@ -169,7 +169,7 @@ public class BoardWebController {
 	public String modify(HttpServletRequest request, int no, String title, String content,
 			@RequestParam("attachment") MultipartFile attachment, String password) throws CommonException, Exception {
 
-		boolean isMathced = userInfoSerivce.isPassowrdMatched(no, password);
+		boolean isMathced = userInfoSerivce.isBoardMatched(no, password);
 		if (!isMathced) {
 			return "redirect:/board/modify.do?no=" + no + "&action=error-password";
 		}

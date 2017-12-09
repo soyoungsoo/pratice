@@ -165,7 +165,7 @@ public class UserWebController {
 	// 사용자 수정 후, 사용자 설정 화면으로 이동
 	@RequestMapping(value = "/user/modify", method = RequestMethod.POST)
 	public String modify(HttpServletRequest request,
-			String email,
+			Integer id,
 			String oldPassword,
 			String newPassword,
 			String name,
@@ -173,7 +173,7 @@ public class UserWebController {
 					throws CommonException,Exception {
 
 		// 기존 비밀번호 검사 후 수정할지 결정
-		boolean isMathched = userInfoService.isPassowrdMatched(email, oldPassword);
+		boolean isMathched = userInfoService.isPassowrdMatched(id, oldPassword);
 		if (!isMathched) {
 			return "redirect:/user/modify?action=error-password";
 		}

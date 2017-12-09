@@ -1,0 +1,4 @@
+#Thu Dec 07 19:35:19 KST 2017
+base.0=C\:\\git\\pratice\\Spring35Client\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+renamed.0=classes.dex
+file.0=C\:\\git\\pratice\\Spring35Client\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

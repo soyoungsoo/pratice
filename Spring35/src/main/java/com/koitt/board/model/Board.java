@@ -8,14 +8,14 @@ public class Board {
 	private Integer no;
 	private String title;
 	private String content;
-	private String id;
+	private Integer id;
 	private Date regdate;
 	private String attachment;
 	
 	public Board() {}
 
 	public Board(Integer no, String title, String content, 
-			String id, Date regdate, String attachment) {
+			Integer id, Date regdate, String attachment) {
 		this.no = no;
 		this.title = title;
 		this.content = content;
@@ -48,11 +48,11 @@ public class Board {
 		this.content = content;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
